@@ -27,4 +27,8 @@ class DataBaseHelper {
   }
 
 
+  void fetchData(){
+    database!.rawQuery('');
+  }
+
 }
