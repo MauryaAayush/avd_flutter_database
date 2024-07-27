@@ -28,7 +28,7 @@ class DataBaseHelper {
 
 
   void fetchData(){
-    database!.rawQuery('');
+    database!.rawQuery('SELECT * FROM Task');
   }
 
 }
