@@ -1,14 +1,21 @@
-
+import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DataBaseHelper {
   Database? database;
 
   Future<Database?> initDatabase() async {
-  final path = await getDatabasesPath();
+    final path = await getDatabasesPath();
 
+    final dbPath = join(path, 'emb.db');
 
+    database = await openDatabase(
+      dbPath,
+      version: 1,
+      onCreate: (db, version) async {
+        await db.execute(
+            'CREATE TABLE Task (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL , salary REAL NOT NULL, role TEXT)');
+        });
     return database;
   }
-
 }
