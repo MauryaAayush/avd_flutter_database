@@ -27,8 +27,15 @@ class DataBaseHelper {
   }
 
 
-  void fetchData(){
-    database!.rawQuery('SELECT * FROM Task');
+  Future<List<Map<String, Object?>>> fetchData() async {
+    Database? db = await initDatabase();
+
+    if(db != null){
+      return await db.rawQuery('SELECT * FROM Task');
+    }
+    else{
+      return [];
+    }
   }
 
 }
