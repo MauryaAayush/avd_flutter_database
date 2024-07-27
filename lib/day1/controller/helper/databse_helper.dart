@@ -20,7 +20,6 @@ class DataBaseHelper {
   }
 
 
-
   Future<void> insertData() async {
      await database!.rawInsert(
        'INSERT INTO Task (name, salary, role) VALUES ("AAYUSH", 100000, "Developer")');
