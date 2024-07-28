@@ -13,11 +13,11 @@ class TodoApp extends StatelessWidget {
   Color getPriorityColor(int priority) {
     switch (priority) {
       case 1:
-        return Colors.green;
+        return Colors.teal;
       case 2:
-        return Colors.orange;
+        return Colors.teal.withOpacity(0.8);
       case 3:
-        return Colors.red;
+        return Colors.teal.withOpacity(0.6);
       default:
         return Colors.grey;
     }
@@ -152,7 +152,7 @@ class TodoApp extends StatelessWidget {
                                 IconButton(
                                   icon: Icon(Icons.check),
                                   color: task.isDone
-                                      ? Colors.green
+                                      ? Colors.transparent
                                       : Colors.black54,
                                   onPressed: () {
                                     taskController.toggleTaskStatus(task);
@@ -160,7 +160,7 @@ class TodoApp extends StatelessWidget {
                                 ),
                                 IconButton(
                                   color: task.isDone
-                                      ? Colors.green
+                                      ? Colors.transparent
                                       : Colors.black54,
                                   icon: Icon(Icons.edit),
                                   onPressed: () {
@@ -174,7 +174,7 @@ class TodoApp extends StatelessWidget {
                                 ),
                                 IconButton(
                                   color: task.isDone
-                                      ? Colors.green
+                                      ? Colors.transparent
                                       : Colors.black54,
                                   icon: Icon(Icons.delete),
                                   onPressed: () {
