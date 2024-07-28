@@ -5,10 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-
 class TodoApp extends StatelessWidget {
   final TaskController taskController = Get.put(TaskController());
+
   TodoApp({super.key});
 
   Color getPriorityColor(int priority) {
@@ -73,7 +72,15 @@ class TodoApp extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: List.generate(7, (index) {
-                      List<String> weekDays = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+                      List<String> weekDays = [
+                        'M',
+                        'T',
+                        'W',
+                        'T',
+                        'F',
+                        'S',
+                        'S'
+                      ];
                       return Column(
                         children: [
                           Text(
@@ -88,7 +95,8 @@ class TodoApp extends StatelessWidget {
                             width: 30,
                             height: 30,
                             decoration: BoxDecoration(
-                              color: index == 2 ? Colors.teal : Colors.transparent,
+                              color:
+                                  index == 2 ? Colors.teal : Colors.transparent,
                               shape: BoxShape.circle,
                             ),
                             child: Center(
@@ -106,9 +114,15 @@ class TodoApp extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                Expanded(
-                  child:
-                  Obx(() {
+                Expanded(child: Obx(() {
+                  if (taskController.tasks.isEmpty) {
+                    return Center(
+                      child: Text(
+                        'There are no tasks',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    );
+                  } else {
                     return ListView.builder(
                       itemCount: taskController.tasks.length,
                       itemBuilder: (context, index) {
@@ -119,12 +133,17 @@ class TodoApp extends StatelessWidget {
                             title: Text(
                               task.taskName,
                               style: TextStyle(
-                                decoration: task.isDone ? TextDecoration.lineThrough : null,
+                                decoration: task.isDone
+                                    ? TextDecoration.lineThrough
+                                    : null,
                               ),
                             ),
-                            subtitle: Text(task.note ?? '',
+                            subtitle: Text(
+                              task.note ?? '',
                               style: TextStyle(
-                                decoration: task.isDone ? TextDecoration.lineThrough : null,
+                                decoration: task.isDone
+                                    ? TextDecoration.lineThrough
+                                    : null,
                               ),
                             ),
                             trailing: Wrap(
@@ -132,13 +151,17 @@ class TodoApp extends StatelessWidget {
                               children: <Widget>[
                                 IconButton(
                                   icon: Icon(Icons.check),
-                                  color: task.isDone ? Colors.green : Colors.black54,
+                                  color: task.isDone
+                                      ? Colors.green
+                                      : Colors.black54,
                                   onPressed: () {
                                     taskController.toggleTaskStatus(task);
                                   },
                                 ),
                                 IconButton(
-                                  color: task.isDone ? Colors.green : Colors.black54,
+                                  color: task.isDone
+                                      ? Colors.green
+                                      : Colors.black54,
                                   icon: Icon(Icons.edit),
                                   onPressed: () {
                                     showDialog(
@@ -150,7 +173,9 @@ class TodoApp extends StatelessWidget {
                                   },
                                 ),
                                 IconButton(
-                                  color: task.isDone ? Colors.green : Colors.black54,
+                                  color: task.isDone
+                                      ? Colors.green
+                                      : Colors.black54,
                                   icon: Icon(Icons.delete),
                                   onPressed: () {
                                     taskController.deleteTask(task.id!);
@@ -162,9 +187,8 @@ class TodoApp extends StatelessWidget {
                         );
                       },
                     );
-                  })
-
-                ),
+                  }
+                })),
               ],
             ),
           ),
@@ -185,9 +209,6 @@ class TodoApp extends StatelessWidget {
           ),
         ],
       ),
-
-
-
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
@@ -197,13 +218,12 @@ class TodoApp extends StatelessWidget {
             },
           );
         },
-        child: const Icon(Icons.add,color: Colors.white,),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
         backgroundColor: Colors.teal,
       ),
     );
   }
-
-
 }
-
-
