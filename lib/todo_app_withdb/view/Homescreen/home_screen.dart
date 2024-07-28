@@ -57,7 +57,7 @@ class TodoApp extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Text(
-                        "Wednesday, October 23",
+                        "Sunday, July 28",
                         style: GoogleFonts.roboto(
                           fontSize: 18,
                           color: Colors.grey,
@@ -96,12 +96,12 @@ class TodoApp extends StatelessWidget {
                             height: 30,
                             decoration: BoxDecoration(
                               color:
-                                  index == 2 ? Colors.teal : Colors.transparent,
+                                  index == 6 ? Colors.teal : Colors.transparent,
                               shape: BoxShape.circle,
                             ),
                             child: Center(
                               child: Text(
-                                "${21 + index}",
+                                "${22 + index}",
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),
