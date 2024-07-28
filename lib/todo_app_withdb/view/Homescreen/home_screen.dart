@@ -1,6 +1,7 @@
 import 'package:avd_flutter_database/todo_app_withdb/controller/task_controller.dart';
 import 'package:avd_flutter_database/todo_app_withdb/model/task_model.dart';
 import 'package:avd_flutter_database/todo_app_withdb/view/Components/add_task_dialoge.dart';
+import 'package:avd_flutter_database/todo_app_withdb/view/Components/edit_task_dialoge.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
