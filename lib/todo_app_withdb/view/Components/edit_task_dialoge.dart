@@ -54,7 +54,7 @@ class EditTaskDialog extends StatelessWidget {
           onPressed: () {
             Get.back();
           },
-          child: Text('Cancel'),
+          child: const Text('Cancel'),
         ),
         TextButton(
           onPressed: () {
