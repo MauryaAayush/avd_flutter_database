@@ -22,21 +22,29 @@ class EditTaskDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: Colors.grey[900],
-      title: Text('Edit Task'),
+      title: Text('Edit Task',style: TextStyle(
+        color: Colors.white
+      ),),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           TextField(
             controller: taskNameController,
-            decoration: InputDecoration(labelText: 'Task Name'),
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(labelText: 'Task Name',
+              labelStyle: TextStyle(color: Colors.grey),),
           ),
           TextField(
             controller: noteController,
-            decoration: InputDecoration(labelText: 'Note'),
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(labelText: 'Note',
+              labelStyle: TextStyle(color: Colors.grey),),
           ),
           TextField(
             controller: priorityController,
-            decoration: InputDecoration(labelText: 'Priority (1, 2, 3)'),
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(labelText: 'Priority (1, 2, 3)',
+              labelStyle: TextStyle(color: Colors.grey),),
             keyboardType: TextInputType.number,
           ),
         ],
