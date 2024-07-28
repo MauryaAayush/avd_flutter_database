@@ -1,5 +1,4 @@
 import 'package:avd_flutter_database/todo_app_withdb/controller/task_controller.dart';
-import 'package:avd_flutter_database/todo_app_withdb/model/task_model.dart';
 import 'package:avd_flutter_database/todo_app_withdb/view/Components/add_task_dialoge.dart';
 import 'package:avd_flutter_database/todo_app_withdb/view/Components/edit_task_dialoge.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +8,20 @@ import 'package:get/get.dart';
 
 class TodoApp extends StatelessWidget {
   final TaskController taskController = Get.put(TaskController());
+  TodoApp({super.key});
 
-   TodoApp({super.key});
+  Color getPriorityColor(int priority) {
+    switch (priority) {
+      case 1:
+        return Colors.green;
+      case 2:
+        return Colors.orange;
+      case 3:
+        return Colors.red;
+      default:
+        return Colors.grey;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,19 +96,6 @@ class TodoApp extends StatelessWidget {
         child: Icon(Icons.add),
       ),
     );
-  }
-
-  Color getPriorityColor(int priority) {
-    switch (priority) {
-      case 1:
-        return Colors.green;
-      case 2:
-        return Colors.orange;
-      case 3:
-        return Colors.red;
-      default:
-        return Colors.grey;
-    }
   }
 }
 
