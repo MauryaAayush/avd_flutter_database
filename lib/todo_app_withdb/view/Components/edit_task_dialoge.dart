@@ -21,6 +21,7 @@ class EditTaskDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Colors.grey[900],
       title: Text('Edit Task'),
       content: Column(
         mainAxisSize: MainAxisSize.min,

@@ -3,7 +3,6 @@ import 'package:avd_flutter_database/todo_app_withdb/model/task_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class AddTaskDialog extends StatelessWidget {
   final taskNameController = TextEditingController();
   final noteController = TextEditingController();
@@ -11,24 +10,39 @@ class AddTaskDialog extends StatelessWidget {
 
   final TaskController taskController = Get.find();
 
+  AddTaskDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Add Task'),
+      backgroundColor: Colors.grey[900],
+      title: Text('Add Task', style: TextStyle(color: Colors.white)),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           TextField(
             controller: taskNameController,
-            decoration: InputDecoration(labelText: 'Task Name'),
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Task Name',
+              labelStyle: TextStyle(color: Colors.grey),
+            ),
           ),
           TextField(
             controller: noteController,
-            decoration: InputDecoration(labelText: 'Note'),
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Note',
+              labelStyle: TextStyle(color: Colors.grey),
+            ),
           ),
           TextField(
             controller: priorityController,
-            decoration: InputDecoration(labelText: 'Priority (1, 2, 3)'),
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Priority (1, 2, 3)',
+              labelStyle: TextStyle(color: Colors.grey),
+            ),
             keyboardType: TextInputType.number,
           ),
         ],
