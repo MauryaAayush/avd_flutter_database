@@ -132,7 +132,9 @@ class TodoApp extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               task.taskName,
-                              style: TextStyle(
+                              style: GoogleFonts.roboto(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
                                 decoration: task.isDone
                                     ? TextDecoration.lineThrough
                                     : null,
@@ -140,7 +142,7 @@ class TodoApp extends StatelessWidget {
                             ),
                             subtitle: Text(
                               task.note ?? '',
-                              style: TextStyle(
+                              style: GoogleFonts.roboto(
                                 decoration: task.isDone
                                     ? TextDecoration.lineThrough
                                     : null,
