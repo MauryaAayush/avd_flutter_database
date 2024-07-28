@@ -30,18 +30,23 @@ class TodoApp extends StatelessWidget {
                     decoration: task.isDone ? TextDecoration.lineThrough : null,
                   ),
                 ),
-                subtitle: Text(task.note ?? ''),
+                subtitle: Text(task.note ?? '',
+                  style: TextStyle(
+                    decoration: task.isDone ? TextDecoration.lineThrough : null,
+                  ),
+                ),
                 trailing: Wrap(
                   spacing: 12, // space between two icons
                   children: <Widget>[
                     IconButton(
                       icon: Icon(Icons.check),
-                      color: task.isDone ? Colors.green : Colors.grey,
+                      color: task.isDone ? Colors.green : Colors.black54,
                       onPressed: () {
                         taskController.toggleTaskStatus(task);
                       },
                     ),
                     IconButton(
+                      color: task.isDone ? Colors.green : Colors.black54,
                       icon: Icon(Icons.edit),
                       onPressed: () {
                         showDialog(
@@ -53,6 +58,7 @@ class TodoApp extends StatelessWidget {
                       },
                     ),
                     IconButton(
+                      color: task.isDone ? Colors.green : Colors.black54,
                       icon: Icon(Icons.delete),
                       onPressed: () {
                         taskController.deleteTask(task.id!);
