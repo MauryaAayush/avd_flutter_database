@@ -99,59 +99,7 @@ class TodoApp extends StatelessWidget {
   }
 }
 
-class AddTaskDialog extends StatelessWidget {
-  final taskNameController = TextEditingController();
-  final noteController = TextEditingController();
-  final priorityController = TextEditingController();
 
-  final TaskController taskController = Get.find();
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text('Add Task'),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          TextField(
-            controller: taskNameController,
-            decoration: InputDecoration(labelText: 'Task Name'),
-          ),
-          TextField(
-            controller: noteController,
-            decoration: InputDecoration(labelText: 'Note'),
-          ),
-          TextField(
-            controller: priorityController,
-            decoration: InputDecoration(labelText: 'Priority (1, 2, 3)'),
-            keyboardType: TextInputType.number,
-          ),
-        ],
-      ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            Get.back();
-          },
-          child: Text('Cancel'),
-        ),
-        TextButton(
-          onPressed: () {
-            final task = Task(
-              taskName: taskNameController.text,
-              isDone: false,
-              note: noteController.text,
-              priority: int.parse(priorityController.text),
-            );
-            taskController.addTask(task);
-            Get.back();
-          },
-          child: Text('Add'),
-        ),
-      ],
-    );
-  }
-}
 
 class EditTaskDialog extends StatelessWidget {
   final Task task;
