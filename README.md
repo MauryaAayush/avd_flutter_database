@@ -11,6 +11,26 @@ Welcome to the TODO App! This is a simple yet powerful task management applicati
 * Persistent Storage: Save your tasks in an SQL database, ensuring your data is safe even if you close the app.
 * State Management: Use GetX for efficient and reactive state management.
 
+```
+
+lib/
+│
+├── controllers/
+│   └── task_controller.dart
+├── models/
+│   └── task.dart
+├── views/
+│   ├── home_screen.dart
+│   ├── add_task_screen.dart
+│   └── edit_task_screen.dart
+├── database/
+│   └── db_helper.dart
+└── main.dart
+
+
+```
+
+
 ### 
 <h3 align="center"><i>Images</i></h3>
 
